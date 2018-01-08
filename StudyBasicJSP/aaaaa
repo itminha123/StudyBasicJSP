@@ -1,0 +1,11 @@
+select * from manager;
+
+show tables;
+
+desc manager;
+
+select * from member;
+
+desc book;
+
+select * form book;
