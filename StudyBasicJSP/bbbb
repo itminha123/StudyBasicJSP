@@ -1,0 +1,3 @@
+desc Suppliers;
+
+select * from Suppliers;

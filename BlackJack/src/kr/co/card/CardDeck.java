@@ -4,32 +4,33 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class CardDeck extends Card{
-	public final static String spade = "스페이드";
-	public final static String heart = "하트";
-	public final static String daimond = "다이아몬드";
-	public final static String claver = "클로버";
-	Card c = new Card();
-	
-	static Card card_arr[][] = new Card[4][13];	
+	Card c; //abc
+
 	private ArrayList card_arrlist = new ArrayList();
+	public ArrayList int_card = new ArrayList();
 	public CardDeck() {
 		for (int i=0; i<4; i++) {
 			for (int j=0; j<13; j++) {
 				c = new Card();
 				if (j == 0) {
 					c.setNumber("A");
+					int_card.add(j+1);
 				}
 				else if(j>0 && j<10) {
 					c.setNumber(Integer.toString(j+1));	
+					int_card.add(j+1);
 				}
 				else if (j == 10) {
 					c.setNumber("J");
+					int_card.add(10);
 				}
 				else if (j == 11) {
 					c.setNumber("Q");
+					int_card.add(10);
 				}
 				else if (j == 12) {
 					c.setNumber("K");
+					int_card.add(10);
 				}
 				switch(i) {
 				case 0:
@@ -45,20 +46,23 @@ public class CardDeck extends Card{
 					c.setShape("다이아");
 					break;
 				}
-				card_arr[i][j] = c;
-				card_arrlist.add(card_arr[i][j]);
+				
+				card_arrlist.add(c);
 //				System.out.println(card_arrlist);
 			}
 		}
 	
 	}
-	public String Random_Card() {
+	
+	public int card_index;
+	public Card Random_Card() {
 		Random r = new Random();
 		int card_listindex = r.nextInt(card_arrlist.size());
 		Card RCard = (Card) card_arrlist.get(card_listindex);
 		card_arrlist.remove(card_listindex);
-		return String.format("%s", RCard);
-		
+		int_card.remove(card_listindex);
+		card_index = card_listindex;
+		return RCard;
 	}
 
 }

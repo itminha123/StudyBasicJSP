@@ -1,25 +1,17 @@
 package kr.co.card.player;
 
+import java.util.ArrayList;
+
 import kr.co.card.Card;
 import kr.co.card.CardDeck;
 
 public class Gamer {
+	public ArrayList<Card> gamer_arr = new ArrayList<Card>();
 	
-	public void Card_choice() {
-		CardDeck one_card = new CardDeck();
-		System.out.println(one_card.Random_Card());
-		one_card.Random_Card();
-
+	CardDeck cardDeck;
+	public Gamer(CardDeck cd) {
+		this.cardDeck = cd;
+		gamer_arr.add(cardDeck.Random_Card());
+		gamer_arr.add(cardDeck.Random_Card());
 	}
-
-
-	
-	
-
-
-//	public static void main(String args[]) {
-//		CardDeck aa = new CardDeck();
-//		CardDeck aa = new CardDeck();
-//		aa.Random_Card();
-//	}
 }
